@@ -15,7 +15,7 @@ pizzaJson.map((item, index) => {
     e.preventDefault();
     let key = e.target.closest('.pizza-item').getAttribute('data-key');
 
-    modalQT = 1;
+    //modalQT = 1;
     c('.pizzaBig img').src = pizzaJson[key].img;
     c('.pizzaInfo h1').innerHTML = pizzaJson[key].name;
     c('.pizzaInfo--desc').innerHTML = pizzaJson[key].description;
@@ -29,7 +29,7 @@ pizzaJson.map((item, index) => {
     });
 
 
-    c('pizzaInfo--qt').innerHTML = modalQt;
+    c('.pizzaInfo--qt').innerHTML = modalQt;
     c('.pizzaWindowArea').style.opacity = 0;
     c('.pizzaWindowArea').style.display = 'flex';
     setTimeout(() =>{
@@ -49,3 +49,7 @@ function closeModal() {
     c('.pizzaWindowArea').style.display = 'none';
   }, 500);
 }
+
+cs('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item)=>{
+  item.addEventListener('click',closeModal);
+});
